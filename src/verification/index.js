@@ -54,19 +54,14 @@ export default{
   //  导出
   dao: (daochu) => {
     const data = format(new Date(), 'YYYY-MM-DD')
-    // const api = 'http://localhost/server/excel/'
-    // const api = 'http://lt.ewanyuan.cn/server/excel/'
-    const api = 'http://10.240.45.192/server/excel/'
+    const api = 'http://10.240.45.152/server/excel/'
     // const api = 'http://spaceflight.wocloud.wangtiansoft.com/server/excel/'
-    // const str = daochu
-    // const newStr = str.slice(20, str.length)
     return api + daochu + data + '.xls'
   },
   // 模板
   template: (template) => {
-    // const api = 'http://10.240.47.249/server/'
-    const api = 'http://spaceflight.wocloud.wangtiansoft.com/server/'
-    // const api = 'http://lt.ewanyuan.cn/server/'
+    const api = 'http://10.240.45.152/server/'
+    // const api = 'http://spaceflight.wocloud.wangtiansoft.com/server/'
     return api + template + '.xls'
   },
   // 根据年龄条件查询后台，转成活了多少年

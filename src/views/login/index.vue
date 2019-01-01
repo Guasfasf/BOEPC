@@ -39,7 +39,7 @@
         </div>
       </el-form-item>
       <el-form-item style="background-color: white">
-        <el-button :loading="loading" type="primary" style="width:100%;height: 47px; border: none; font-size: 20px;" @click.native.prevent="phoneLogin">
+        <el-button :loading="loading" type="primary" style="width:100%;height: 47px; border: none; font-size: 20px;" @click.native.prevent="phoneLogin" @keyup.enter="phoneLogin">
           登    录
         </el-button>
       </el-form-item>
@@ -76,9 +76,8 @@ export default {
         card: ''
       },
       loginRules: {
-        username: [{ required: true, trigger: 'blur', validator: validPhone }],
-        password: [{ required: true, trigger: 'blur', validator: validatePass }]
-        // card: [{ required: true, trigger: 'blur' }]
+        // username: [{ required: true, trigger: 'blur', validator: validPhone }],
+        // password: [{ required: true, trigger: 'blur', validator: validatePass }]
       },
       loading: false,
       cardDisabled: false,
@@ -136,11 +135,10 @@ export default {
         return
       }
       const params = {
-        mobile: this.loginForm.username,
-        num: this.loginForm.card,
+        username: this.loginForm.username,
         password: this.loginForm.password
       }
-      this.$store.dispatch('loginByMboile', params).then(() => {
+      this.$store.dispatch('Login', params).then(() => {
         if (this.checked) {
           this.setCookie(this.loginForm.username, this.loginForm.password, 30)
         } else {
